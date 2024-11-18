@@ -1,6 +1,6 @@
 ## x-ibm-finding object
 
-The `x-ibm-finding` object describes a threat, policy, violation, or alert and its associated properties. 
+The `x-ibm-finding` SCO object describes a threat, policy, violation, or alert and its associated properties. 
 Where possible, references are made to existing STIX objects (ie. ip addresses, users).
 
 
@@ -8,9 +8,7 @@ Where possible, references are made to existing STIX objects (ie. ip addresses, 
 |---------------|------|-------------|
 | **type** (required) | `string` | The value of this property must be `x-ibm-finding`. |
 | **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
-| **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
-| **created** (required) | `timestamp` | The date and time the object was created |
-| **modified** (required) | `timestamp` | The date and time the object was modified |
+| **spec_version** (optional) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **finding_type** (required) | `string` | An open vocabulary that identifies the finding type. (ie. `threat`, `policy`, `violation`, `alert`.) |
 | **name** (required) | `string` | The name of the threat, policy, violation, or  alert. |
 | **alert_id** | `string` | The id of the finding from the data source |
@@ -129,8 +127,7 @@ Where possible, references are made to existing STIX objects (ie. ip addresses, 
 ```
 
 ## Example 2: Stix v2.1 List
-The Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO is used to combine these observations with appropriate SDO's, such as `x-ibm-finding` or `x-oca-geo`.
-
+The Observed Data SDO uses the `object_refs` property to contian id's of any observables, and each observable previously contained in the `object` property now needs to be provided with an `id` property as a minimum
 
 ```json
 [
@@ -149,20 +146,8 @@ The Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO i
       "user-account--0d5b424b-93b8-5cd8-ac36-306e1789d63c",
       "software--a1827f6d-ca53-5605-9e93-4316cd22a00a",
       "ipv4-addr--157aeca1-b949-5c83-89cb-ef99757be9c6",
-      "url--e9653306-7457-5316-a478-57559c06d87f"
-    ]
-  },
-  {
-    "type": "sighting",
-    "spec_version": "2.1",
-    "id": "sighting--7270fd2c-05c7-401d-a553-deea53d5ecda",
-    "created": "2023-11-18T05:26:43.526206Z",
-    "modified": "2023-11-18T05:26:43.526206Z",
-    "sighting_of_ref": "x-ibm-finding--2ca1326a-122e-4fdf-ac4c-a72942af260c",
-    "observed_data_refs": [
-      "observed-data--ed82dd61-cc41-485b-b608-d278469e6259"
-    ],
-    "where_sighted_refs": [
+      "x-ibm-finding--2ca1326a-122e-4fdf-ac4c-a72942af260c",
+      "url--e9653306-7457-5316-a478-57559c06d87f",
       "x-oca-geo--ed82dd61-cc41-485b-b608-d278469e6259"
     ]
   },
@@ -195,8 +180,6 @@ The Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO i
     "type": "x-ibm-finding",
     "spec_version": "2.1",
     "id": "x-ibm-finding--2ca1326a-122e-4fdf-ac4c-a72942af260c",
-    "created": "2019-07-18T19:06:20.459257Z",
-    "modified": "2019-07-18T19:06:20.459257Z",
     "name": "Some rule name",
     "finding_type": "violation",
     "time_observed": "2019-07-18T19:06:20.459257Z",
@@ -219,8 +202,6 @@ The Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO i
     "type": "x-ibm-ttp-tagging",
     "spec_version": "2.1",
     "id": "x-ibm-ttp-tagging--fa5c2b89-ede5-425e-8d65-95dedb2d444f",
-    "created": "2019-07-18T19:06:20.459257Z",
-    "modified": "2019-07-18T19:06:20.459257Z",
     "name": "Active Scanning",
     "url": "https://attack.mitre.org/versions/v8/techniques/T1595/",
     "confidence": 0.8,

@@ -12,9 +12,7 @@ Use of references helps to hint the relevance of the data. For example a file cr
 |--------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **type** (required)          | `string`                   | x-oca-event                                                                                                                                                                                                                          |
 | **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
-| **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
-| **created** (required) | `timestamp` | The date and time the object was created |
-| **modified** (required) | `timestamp` | The date and time the object was modified |
+| **spec_version** (optional) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **action** (required)        | `string`                   | describes the event action. for example process create                                                                                                                                                                               |
 | **category**                 | `list` of type `string`    | categories describing the event. for example "process" or "system"                                                                                                                                                                   |
 | **code**                     | `string`                   | event code or event id from the original log source                                                                                                                                                                                  |
@@ -175,7 +173,7 @@ network communication from the host `host1.exmaple.com` to url `https://example.
 
 network communication from the host `host1.exmaple.com` to url `https://example.com/download` performed by the `chrome.exe` process.
 
-In Stix v2.1, the Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO is used to combine these observations with appropriate SDO's, such as `x-oca-event` or `x-oca-asset`.
+In Stix v2.1, the Observed Data SDO uses the `object_refs` property to contian id's of any observables, and each observable previously contained in the `object` property now needs to be provided with an `id` property as a minimum.
 
 ```json
 [
@@ -202,20 +200,8 @@ In Stix v2.1, the Observed Data SDO gatherss any SCO's (Observables), while the 
       "user-account--1a9c7df9-1266-5a73-8d67-ceeb4f9d8fd8",
       "artifact--ca17bcf8-9846-5ab4-8662-75c1bf6e63ee",
       "ipv4-addr--d1f1b1e2-d0a9-5fca-bc1b-adae31c22ad3",
-      "mac-addr--c531c16b-cb43-51c7-89f4-6d01507dd6e5"
-    ]
-  },
-  {
-    "type": "sighting",
-    "spec_version": "2.1",
-    "id": "sighting--5b098c08-9215-4b7b-b268-d8d0e99c2674",
-    "created": "2023-11-18T05:26:43.58124Z",
-    "modified": "2023-11-18T05:26:43.58124Z",
-    "sighting_of_ref": "x-oca-event--f4b21ac5-da4e-4aa9-8546-500d60390d95",
-    "observed_data_refs": [
-      "observed-data--7805aca6-b29d-4e1a-86b2-ba4eb1110051"
-    ],
-    "where_sighted_refs": [
+      "x-oca-event--f4b21ac5-da4e-4aa9-8546-500d60390d95",
+      "mac-addr--c531c16b-cb43-51c7-89f4-6d01507dd6e5",
       "x-oca-asset--77bbc76e-3318-427d-9454-06468b18d273"
     ]
   },
@@ -224,7 +210,6 @@ In Stix v2.1, the Observed Data SDO gatherss any SCO's (Observables), while the 
     "spec_version": "2.1",
     "id": "x-oca-event--f4b21ac5-da4e-4aa9-8546-500d60390d95",
     "created": "2022-07-15T18:42:31.000Z",
-    "modified": "2022-07-15T18:42:31.000Z",
     "action": "Network Connection Created",
     "host_ref": "x-oca-asset--77bbc76e-3318-427d-9454-06468b18d273",
     "provider": "EDR",
@@ -459,7 +444,7 @@ A file `example.exe` has been created on the host `host1.exmaple.com` by the `ch
 
 A file `example.exe` has been created on the host `host1.exmaple.com` by the `chrome.exe` process.
 
-In Stix v2.1, the Observed Data SDO gatherss any SCO's (Observables), while the Sighting SRO is used to combine these observations with appropriate SDO's, such as `x-oca-event` or `x-oca-asset`.
+In Stix v2.1, the Observed Data SDO uses the `object_refs` property to contian id's of any observables, and each observable previously contained in the `object` property now needs to be provided with an `id` property as a minimum.
 
 
 ```json
@@ -482,22 +467,10 @@ In Stix v2.1, the Observed Data SDO gatherss any SCO's (Observables), while the 
       "process--5f4bbeb7-a991-4057-89cf-ea8f012f5e94",
       "process--e55d62e7-a6a2-4410-af1d-670807f2f223",
       "file--1bd39816-c38f-5d1c-a768-0420c397b79d",
+      "x-oca-event--9d1ceecb-a3f4-4005-8cc9-6a6b76a35c9e",
+      "x-oca-asset--430f5edd-6c7e-4f59-a361-a1979887fde3",
       "directory--cde02145-c164-53f0-ab5a-681e313342e2"
     ]
-  },
-  {
-      "type": "sighting",
-      "spec_version": "2.1",
-      "id": "sighting--d0a71341-cf9b-474f-8cdb-eba6d9e96a68",
-      "created": "2023-11-18T05:26:43.48171Z",
-      "modified": "2023-11-18T05:26:43.48171Z",
-      "sighting_of_ref": "x-oca-event--9d1ceecb-a3f4-4005-8cc9-6a6b76a35c9e",
-      "where_sighted_refs": [
-            "x-oca-asset--430f5edd-6c7e-4f59-a361-a1979887fde3"
-      ],
-      "observed_data_refs": [
-            "observed-data--7805aca6-b29d-4e1a-86b2-ba4eb1110046"
-      ]
   },
   {
     "type": "x-oca-event",
