@@ -1,5 +1,5 @@
 ## x-oca-asset SCO object
-The `x-oca-asset` object is a component of telemtry that describes an asset and its properties. 
+The `x-oca-asset` object is a component of telemtry that describes an asset and its properties.
 It can be referenced to give context on events that took place on this asset.
 It describes the hostname, the associated IP addresses and physical addresses of the asset.
 In SIEM terminology which collects events from many systems - it is used to describe where the events took place.
@@ -10,7 +10,7 @@ While `x-oca-asset` specifies the host on which the associated event occurred, i
 | property name | type | description |
 |--|--|--|
 | **type** (required) | `string` | x-oca-asset |
-| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
+| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) |
 | **spec_version** (optional) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **extensions** | `dictionary` | Specifies any extensions of the object, as a dictionary. |
 | **device_id** | `string` | The ID of the device. |
@@ -38,7 +38,7 @@ The container asset extension represents a container.
 | **container_id** | `string` | container id |
 | **image_name** | `string` | container image name |
 | **image_id** | `string` | container image id |
-| **container_type** | `container_type_ov` | container type | 
+| **container_type** | `container_type_ov` | container type |
 | **privileged** | `boolean` | indicates a priviliged container |
 
 #### Container Type Vocabluary
@@ -104,7 +104,7 @@ Type Name `x-oca-interface-type`
 	        "ip_refs": ["0", "2"],
 	        "hostname": "example host",
 	        "host_id": "123A",
-          "geo_ref": "5",	
+          "geo_ref": "5",
           "mac_refs": ["3"],
           "host_type": "APM Server",
           "egress":
@@ -162,7 +162,7 @@ Type Name `x-oca-interface-type`
   }
   ```
 
-  
+
 
 ### Example 2: Stix 2.1
 The Observed Data SDO can only gather any SCO's (Observables), while the Sighting SRO is used to combine these observations with appropriate SDO's, such as `x-oca-asset` or `x-oca-geo`.
@@ -285,5 +285,5 @@ The Observed Data SDO can only gather any SCO's (Observables), while the Sightin
       "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf"
     ]
   }
-]    
+]
   ```

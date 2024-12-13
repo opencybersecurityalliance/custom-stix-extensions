@@ -1,13 +1,13 @@
 ## x-ibm-finding object
 
-The `x-ibm-finding` object describes a threat, policy, violation, or alert and its associated properties. 
+The `x-ibm-finding` object describes a threat, policy, violation, or alert and its associated properties.
 Where possible, references are made to existing STIX objects (ie. ip addresses, users).
 
 
 | **Property Name** | **Type** | **Description** |
 |---------------|------|-------------|
 | **type** (required) | `string` | The value of this property must be `x-ibm-finding`. |
-| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
+| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) |
 | **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **created** (required) | `timestamp` | The date and time the object was created |
 | **modified** (required) | `timestamp` | The date and time the object was modified |
@@ -85,7 +85,7 @@ Where possible, references are made to existing STIX objects (ie. ip addresses, 
           "src_application_ref": "3",
           "src_geo_ref": "8",
           "src_device": "Chrome",
-          "ttp_tagging_refs": [5], 
+          "ttp_tagging_refs": [5],
           "ioc_refs": ["6","7"]
        },
        "5": {
@@ -99,9 +99,9 @@ Where possible, references are made to existing STIX objects (ie. ip addresses, 
                 "phase_name": "reconnaissance"
              }
           ],
-          "extensions": 
+          "extensions":
           {
-             "mitre-attack-ext": 
+             "mitre-attack-ext":
              {
                 "tactic_id": "TA0043",
                 "tactic_url": "https://attack.mitre.org/versions/v8/tactics/TA0043/",

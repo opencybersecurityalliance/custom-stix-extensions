@@ -1,5 +1,5 @@
 ## x-oca-event
-Adds a new object for describing events. 
+Adds a new object for describing events.
 Since STIX was originally created for threat intelligence and not for SIEM or EDR data, it did not have the concept of an event.
 Take an endpoint file create event as an example - the observed data would include the process and file details - but you would be missing the context
 to understand what happened between these two - did the process create or delete or write to the file?
@@ -11,7 +11,7 @@ Use of references helps to hint the relevance of the data. For example a file cr
 | **property name**            | **type**                       | **description**                                                                                                                                                                                                                          |
 |--------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **type** (required)          | `string`                   | x-oca-event                                                                                                                                                                                                                          |
-| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
+| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) |
 | **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **created** (required) | `timestamp` | The date and time the object was created |
 | **modified** (required) | `timestamp` | The date and time the object was modified |
@@ -39,7 +39,7 @@ Use of references helps to hint the relevance of the data. For example a file cr
 | **network_ref**              | `object-ref`               | references network traffic related to this event. must be of type `network-traffic`                                                                                                                                                  |
 | **ip_refs**                  | `list` of type `object-ref` | references any ip addresses related to this event. must be of type `ipv4-address` or `ipv6-address`                                                                                                                                  |
 | **user_ref**                 | `object-ref`               | references the user related to this event. must be of type `user-account`                                                                                                                                                            |
-| **severity**                 | `number`                   | Severity of the event on a scale of 1-100.                                                                                                                                                                                           | 
+| **severity**                 | `number`                   | Severity of the event on a scale of 1-100.                                                                                                                                                                                           |
 | **start**                    | `timestamp`                | The start time in UTC of the event.                                                                                                                                                                                                  |
 | **end**                      | `timestamp`                | The end time in UTC of the event.                                                                                                                                                                                                    |
 | **timezone**                 | `string`                   | The timezone where the event was discovered.                                                                                                                                                                                         |
