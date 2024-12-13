@@ -9,7 +9,7 @@ common mail clients and web browsers, respectively.
 | property name            | type                       | description
 |--------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **type** (required)          | `string`                   | MUST be the literal "x-oca-detection" |
-| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
+| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) |
 | **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **created** (required) | `timestamp` | The date and time the object was created |
 | **modified** (required) | `timestamp` | The date and time the object was modified |

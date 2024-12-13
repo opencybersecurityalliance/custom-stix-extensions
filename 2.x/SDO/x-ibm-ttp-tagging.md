@@ -5,7 +5,7 @@ The `x-ibm-ttp-tagging` SDO describes mappings of an `x-ibm-finding` or any othe
 | Property Name | Type | Description |
 |---------------|------|-------------|
 | **type** (required) | `string` | The value of this property must be `x-ibm-ttp-tagging`. |
-| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) based on`x-ibm-ttp-tagging` |
+| **id** (required) | `string` | A valid [stix-id](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_64yvzeku5a5c) |
 | **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
 | **created** (required) | `timestamp` | The date and time the object was created |
 | **modified** (required) | `timestamp` | The date and time the object was modified |
@@ -37,9 +37,9 @@ The `x-ibm-ttp-tagging` SDO describes mappings of an `x-ibm-finding` or any othe
 {
     "type": "x-ibm-ttp-tagging",
     "id": "x-ibm-ttp-tagging--30b9578d-574f-4c2c-9931-a164dcd058c3",
-    "spec_version": "2.1",  
-    "created": "2016-04-06T19:58:16.000Z",  
-    "modified": "2016-04-06T19:58:16.000Z",  
+    "spec_version": "2.1",
+    "created": "2016-04-06T19:58:16.000Z",
+    "modified": "2016-04-06T19:58:16.000Z",
     "name": "Active Scanning",
     "url": "https://attack.mitre.org/versions/v8/techniques/T1595/",
     "confidence": 0.8,
@@ -104,9 +104,9 @@ The key for this extension when used in the extensions dictionary **MUST** be `m
 {
     "type": "x-ibm-ttp-tagging",
     "id": "x-ibm-ttp-tagging--30b9578d-574f-4c2c-9931-a164dcd058c3",
-    "spec_version": "2.1",  
-    "created": "2016-04-06T19:58:16.000Z",  
-    "modified": "2016-04-06T19:58:16.000Z",  
+    "spec_version": "2.1",
+    "created": "2016-04-06T19:58:16.000Z",
+    "modified": "2016-04-06T19:58:16.000Z",
     "name": "Active Scanning",
     "url": "https://attack.mitre.org/versions/v8/techniques/T1595/",
     "confidence": 0.8,
